@@ -1,4 +1,5 @@
-import React from 'react';
+'use client';
+
 import { motion } from 'framer-motion';
 
 interface Props {
@@ -7,10 +8,10 @@ interface Props {
   align?: 'left' | 'center';
 }
 
-const SectionTitle: React.FC<Props> = ({ title, subtitle, align = 'center' }) => {
+const SectionTitle = ({ title, subtitle, align = 'center' }: Props) => {
   return (
     <div className={`mb-16 ${align === 'center' ? 'text-center' : 'text-left'}`}>
-      <motion.h2 
+      <motion.h2
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
@@ -20,7 +21,7 @@ const SectionTitle: React.FC<Props> = ({ title, subtitle, align = 'center' }) =>
         {title}
       </motion.h2>
       {subtitle && (
-        <motion.p 
+        <motion.p
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}

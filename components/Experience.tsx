@@ -1,9 +1,10 @@
-import React from 'react';
+'use client';
+
 import { motion } from 'framer-motion';
-import { EXPERIENCE_DATA } from '../constants';
+import { EXPERIENCE_DATA } from '@/lib/constants';
 import SectionTitle from './SectionTitle';
 
-const Experience: React.FC = () => {
+const Experience = () => {
   return (
     <section id="experience" className="py-24 bg-white">
       <div className="container mx-auto px-6">
@@ -28,9 +29,9 @@ const Experience: React.FC = () => {
                     key={skillIndex}
                     whileHover={{ scale: 1.05 }}
                     className={`px-4 py-2 rounded-lg text-sm font-semibold cursor-default transition-colors duration-300 ${
-                      categoryIndex === 0 
+                      categoryIndex === 0
                         ? 'bg-white text-primary border border-primary/20 hover:bg-primary hover:text-white'
-                        : categoryIndex === 1 
+                        : categoryIndex === 1
                           ? 'bg-white text-secondary border border-secondary/20 hover:bg-secondary hover:text-white'
                           : 'bg-white text-gray-700 border border-gray-200 hover:bg-dark hover:text-white'
                     }`}

@@ -1,9 +1,10 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { Mail, Linkedin, ArrowUpRight } from 'lucide-react';
-import { PERSONAL_INFO } from '../constants';
+'use client';
 
-const Contact: React.FC = () => {
+import { motion } from 'framer-motion';
+import { LinkedinIcon, ArrowUpRight } from 'lucide-react';
+import { PERSONAL_INFO } from '@/lib/constants';
+
+const Contact = () => {
   return (
     <section id="contact" className="py-24 relative overflow-hidden">
       {/* Dynamic Gradient Background */}
@@ -22,17 +23,18 @@ const Contact: React.FC = () => {
             Ready to Create Impact?
           </h2>
           <p className="text-gray-300 text-lg md:text-xl max-w-2xl mx-auto mb-12 leading-relaxed">
-            データと情熱で、製造業の未来を変える挑戦を。<br className="hidden md:block"/>
+            データと情熱で、製造業の未来を変える挑戦を。
+            <br className="hidden md:block" />
           </p>
 
           <div className="flex flex-col md:flex-row items-center justify-center gap-6">
-            <a 
+            <a
               href={PERSONAL_INFO.linkedin}
               target="_blank"
               rel="noopener noreferrer"
               className="w-full md:w-auto px-8 py-4 bg-white/10 hover:bg-white/20 backdrop-blur-md rounded-full font-bold text-lg flex items-center justify-center gap-3 transition-all hover:scale-105 border border-white/10"
             >
-              <Linkedin className="w-5 h-5" />
+              <LinkedinIcon className="w-5 h-5" />
               LinkedIn
               <ArrowUpRight className="w-4 h-4" />
             </a>
@@ -40,7 +42,10 @@ const Contact: React.FC = () => {
         </motion.div>
 
         <footer className="mt-24 pt-8 border-t border-white/10 text-gray-500 text-sm">
-          <p>© {new Date().getFullYear()} {PERSONAL_INFO.englishName}. All rights reserved.</p>
+          <p>
+            © {new Date().getFullYear()} {PERSONAL_INFO.englishName}. All rights
+            reserved.
+          </p>
         </footer>
       </div>
     </section>

@@ -1,11 +1,15 @@
-import React from 'react';
+'use client';
+
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
-import { PERSONAL_INFO } from '../constants';
+import { PERSONAL_INFO } from '@/lib/constants';
 
-const Hero: React.FC = () => {
+const Hero = () => {
   return (
-    <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-white">
+    <section
+      id="hero"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-white"
+    >
       {/* Background Decor */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden z-0">
         <div className="absolute top-[-20%] right-[-10%] w-[600px] h-[600px] rounded-full bg-primary/5 blur-[100px]" />
@@ -20,16 +24,16 @@ const Hero: React.FC = () => {
             transition={{ duration: 0.8 }}
             className="mb-6 flex items-center justify-center md:justify-start space-x-3"
           >
-             <span className="px-3 py-1 rounded-full bg-gray-100 text-sm font-semibold text-gray-600 tracking-wider uppercase border border-gray-200">
+            <span className="px-3 py-1 rounded-full bg-gray-100 text-sm font-semibold text-gray-600 tracking-wider uppercase border border-gray-200">
               Portfolio
-             </span>
-             <span className="text-gray-400 font-medium">|</span>
-             <span className="font-bold text-gray-800 tracking-wider">
-               {PERSONAL_INFO.name}
-             </span>
+            </span>
+            <span className="text-gray-400 font-medium">|</span>
+            <span className="font-bold text-gray-800 tracking-wider">
+              {PERSONAL_INFO.name}
+            </span>
           </motion.div>
 
-          <motion.h1 
+          <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
@@ -38,7 +42,8 @@ const Hero: React.FC = () => {
             Insight. <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">
               Action.
-            </span> <br />
+            </span>{' '}
+            <br />
             Impact.
           </motion.h1>
 
@@ -62,8 +67,8 @@ const Hero: React.FC = () => {
             transition={{ duration: 0.8, delay: 0.6 }}
             className="flex flex-col md:flex-row gap-4 items-center md:items-start"
           >
-            <a 
-              href="#story" 
+            <a
+              href="#story"
               className="group relative inline-flex items-center px-8 py-4 bg-dark text-white rounded-full font-bold text-lg overflow-hidden transition-all hover:shadow-xl hover:shadow-primary/20 hover:-translate-y-1"
             >
               <span className="relative z-10 flex items-center">
@@ -75,15 +80,17 @@ const Hero: React.FC = () => {
           </motion.div>
         </div>
       </div>
-      
+
       {/* Scroll indicator */}
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.5, duration: 1 }}
         className="absolute bottom-10 left-1/2 -translate-x-1/2 hidden md:flex flex-col items-center gap-2"
       >
-        <span className="text-xs font-medium text-gray-400 uppercase tracking-widest">Scroll</span>
+        <span className="text-xs font-medium text-gray-400 uppercase tracking-widest">
+          Scroll
+        </span>
         <div className="w-[1px] h-12 bg-gradient-to-b from-gray-300 to-transparent" />
       </motion.div>
     </section>

@@ -1,18 +1,20 @@
-import React, { useState, useEffect } from 'react';
-import { motion, useScroll, useSpring } from 'framer-motion';
-import Hero from './components/Hero';
-import Story from './components/Story';
-import Metrics from './components/Metrics';
-import Process from './components/Process';
-import Experience from './components/Experience';
-import Contact from './components/Contact';
+'use client';
 
-const App: React.FC = () => {
+import { useState, useEffect } from 'react';
+import { motion, useScroll, useSpring } from 'framer-motion';
+import Hero from '@/components/Hero';
+import Story from '@/components/Story';
+import Metrics from '@/components/Metrics';
+import Process from '@/components/Process';
+import Experience from '@/components/Experience';
+import Contact from '@/components/Contact';
+
+export default function Home() {
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, {
     stiffness: 100,
     damping: 30,
-    restDelta: 0.001
+    restDelta: 0.001,
   });
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -34,7 +36,10 @@ const App: React.FC = () => {
     { name: 'Contact', href: '#contact', label: 'お問い合わせ' },
   ];
 
-  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+  const handleNavClick = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    href: string
+  ) => {
     e.preventDefault();
     const element = document.querySelector(href);
     if (element) {
@@ -44,7 +49,7 @@ const App: React.FC = () => {
 
       window.scrollTo({
         top: offsetPosition,
-        behavior: "smooth"
+        behavior: 'smooth',
       });
     }
     setIsMenuOpen(false);
@@ -54,7 +59,7 @@ const App: React.FC = () => {
     e.preventDefault();
     window.scrollTo({
       top: 0,
-      behavior: "smooth"
+      behavior: 'smooth',
     });
     setIsMenuOpen(false);
   };
@@ -68,25 +73,31 @@ const App: React.FC = () => {
       />
 
       {/* Floating Navigation */}
-      <nav 
+      <nav
         className={`fixed top-0 w-full z-40 transition-all duration-300 ${
-          scrolled ? 'bg-white/80 backdrop-blur-md shadow-sm py-4' : 'bg-transparent py-6'
+          scrolled
+            ? 'bg-white/80 backdrop-blur-md shadow-sm py-4'
+            : 'bg-transparent py-6'
         }`}
       >
         <div className="container mx-auto px-6 flex justify-between items-center">
-          <a 
-            href="#" 
+          <a
+            href="#"
             onClick={scrollToTop}
             className="font-bold text-xl tracking-tight z-50 flex items-center gap-2"
           >
-            <span className="w-8 h-8 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center text-white text-xs font-bold">MT</span>
-            <span>Moka<span className="text-primary">.</span>T</span>
+            <span className="w-8 h-8 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center text-white text-xs font-bold">
+              MT
+            </span>
+            <span>
+              Moka<span className="text-primary">.</span>T
+            </span>
           </a>
 
           {/* Desktop Menu */}
           <div className="hidden md:flex gap-8">
             {navLinks.map((link) => (
-              <a 
+              <a
                 key={link.name}
                 href={link.href}
                 onClick={(e) => handleNavClick(e, link.href)}
@@ -98,26 +109,38 @@ const App: React.FC = () => {
           </div>
 
           {/* Mobile Menu Toggle */}
-          <button 
+          <button
             className="md:hidden z-50 p-2"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
-            <div className={`w-6 h-0.5 bg-dark mb-1.5 transition-all ${isMenuOpen ? 'rotate-45 translate-y-2' : ''}`} />
-            <div className={`w-6 h-0.5 bg-dark mb-1.5 transition-all ${isMenuOpen ? 'opacity-0' : ''}`} />
-            <div className={`w-6 h-0.5 bg-dark transition-all ${isMenuOpen ? '-rotate-45 -translate-y-2' : ''}`} />
+            <div
+              className={`w-6 h-0.5 bg-dark mb-1.5 transition-all ${
+                isMenuOpen ? 'rotate-45 translate-y-2' : ''
+              }`}
+            />
+            <div
+              className={`w-6 h-0.5 bg-dark mb-1.5 transition-all ${
+                isMenuOpen ? 'opacity-0' : ''
+              }`}
+            />
+            <div
+              className={`w-6 h-0.5 bg-dark transition-all ${
+                isMenuOpen ? '-rotate-45 -translate-y-2' : ''
+              }`}
+            />
           </button>
         </div>
       </nav>
 
       {/* Mobile Menu Overlay */}
-      <div 
+      <div
         className={`fixed inset-0 bg-white z-30 flex items-center justify-center transition-opacity duration-300 md:hidden ${
           isMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
         }`}
       >
         <div className="flex flex-col gap-8 text-center">
           {navLinks.map((link) => (
-            <a 
+            <a
               key={link.name}
               href={link.href}
               onClick={(e) => handleNavClick(e, link.href)}
@@ -139,6 +162,4 @@ const App: React.FC = () => {
       </main>
     </div>
   );
-};
-
-export default App;
+}
