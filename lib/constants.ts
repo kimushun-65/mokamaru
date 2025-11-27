@@ -8,7 +8,7 @@ export const PERSONAL_INFO = {
   subCatchphrase:
     '泥臭い行動量と、緻密なデータ分析。\n製造業のDXを加速させる、次世代のビジネス開発。',
   email: 'moka.tsubota@starup01.com',
-  linkedin: 'https://linkedin.com',
+  linkedin: 'https://www.linkedin.com/in/%E8%90%A0%E9%A6%99-%E5%B1%80%E7%94%B0-589a66383/',
   x: 'https://x.com',
 };
 
