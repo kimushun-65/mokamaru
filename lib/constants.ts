@@ -42,7 +42,7 @@ export const METRICS_DATA: MetricItem[] = [
   },
   {
     id: '3',
-    label: '行動量 (Action)',
+    label: '架電数 (Dialed Calls)',
     value: '3,600+',
     growth: 'Calls',
     description:
